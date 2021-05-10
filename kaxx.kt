@@ -1,51 +1,55 @@
+
 fun main() {
-    println(isEven(33))
-    println(isEven(12))
-    println(string("Janet"))
-    var product1=Product("banana", 56.7.toFloat(),507800, "gloceries")
-    var product2=Product("soap",2.0.toFloat(),4000,"hygien")
-    var product3=Product("maize",56.3.toFloat(),5860,"gloceries")
-    var product4=Product("vim",3.6.toFloat(),4658,"hygien")
-    println(string("florence"))
-    println(string("mother mary"))
-    var x=peopleNames(arrayOf("Janet","Peruth","Ruth","Frank"))
-    println(x)
-    println(product1.glocerieslist)
+    println(isEven(55))
+    println(isEven(66))
+    println( myFunction("carrot"))
+    println(myFunction("maize"))
+    var category1=Product("apples ",5,600,"food")
+    println(category1)
+    var category2=Product("drugs",2,400,"chemical")
+    println(category2)
+    var category3=Product("knife",1,200,"other")
+    println(category3)
+    println(friendNames(arrayOf("Florence","Bless","Janet","Esther","Peruth")))
 }
 
-fun isEven(num: Int): Boolean {
-    if (num % 2 == 0) {
+fun isEven(x: Int): Boolean {
+    if (x % 2 == 0) {
         return true
-    } else {
+    } else
         return false
+}
+data class Product( var name:String, var weight:Int,var price:Int,var category:String) {
+    fun product(name:String,weight:Int,price:Int,category:Int) {
+        var gloceryList = mutableListOf<String>()
+        var hygieneList = mutableListOf<String>()
+        var otherList = mutableListOf<String>()
+        when ("category") {
+            "gloceries"  -> println( gloceryList.add(name))
+            "hygiene" -> println(hygieneList.add(name))
+            else-> println(otherList.add(name))
+        }
+        println("${name}:${category}")
     }
 }
 
-data class Product(var name: String, var weight: Float, var price: Int, var category: String) {
-    var glocerieslist = mutableListOf<String>()
-    var hygienlist = mutableListOf<String>()
-    fun productAssign(product: String) {
-        when (product) {
-            "gloceries" -> glocerieslist.add(category)
-            "hygien" -> hygienlist.add(category)
-        }
-    }
-}
-fun string(text:String): String{
-    var text=""
-    for (i in text)
-        if (text.indexOf(i) % 2 == 0){
-         text+=i
-        }
+fun myFunction(x: String):String{
+    var xList=""
+    for(character in x){
+        if(x.indexOf(character)%2==0){
+            xList+=character
 
-   return text
-}
-fun peopleNames(name:Array<String>): MutableList<String>{
-    var namesList= mutableListOf<String>()
-    for (nam in name){
-     if (nam.length%2==0){
-         namesList.add(nam)
-     }
+        }
     }
-    return namesList
+    return xList
+}
+
+fun friendNames(names:Array<String>):MutableList<String>{
+    var myNamesList= mutableListOf<String>()
+    for (name in names){
+        if (name.length%2==0) {
+            myNamesList.add(name)
+        }
+    }
+    return myNamesList
 }
