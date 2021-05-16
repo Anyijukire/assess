@@ -4,7 +4,7 @@ fun evenIndices(names: List<String>): List<String>{
     names.forEach { name-> if (names.indexOf(name) % 2== 0) {
         namesList.add(name)
     } }
-    //"Esther","Janet","Florence","James"
+   
     return namesList
 }
 fun peopleHeights(heights: List<Double>):String{
